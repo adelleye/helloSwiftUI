@@ -15,6 +15,8 @@
 		9A19FF6623E89CEC0041F663 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A19FF6423E89CEC0041F663 /* LaunchScreen.storyboard */; };
 		9A19FF7123E89CEC0041F663 /* DesignCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A19FF7023E89CEC0041F663 /* DesignCodeTests.swift */; };
 		9A19FF7C23E89CEC0041F663 /* DesignCodeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A19FF7B23E89CEC0041F663 /* DesignCodeUITests.swift */; };
+		9A19FF8A23E8A4EB0041F663 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A19FF8923E8A4EB0041F663 /* CircleImage.swift */; };
+		9A19FF8C23E8A6C60041F663 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A19FF8B23E8A6C60041F663 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		9A19FF7723E89CEC0041F663 /* DesignCodeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesignCodeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A19FF7B23E89CEC0041F663 /* DesignCodeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCodeUITests.swift; sourceTree = "<group>"; };
 		9A19FF7D23E89CEC0041F663 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A19FF8923E8A4EB0041F663 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		9A19FF8B23E8A6C60041F663 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				9A19FF5923E89CE40041F663 /* AppDelegate.swift */,
 				9A19FF5B23E89CE40041F663 /* SceneDelegate.swift */,
 				9A19FF5D23E89CE40041F663 /* ContentView.swift */,
+				9A19FF8923E8A4EB0041F663 /* CircleImage.swift */,
+				9A19FF8B23E8A6C60041F663 /* MapView.swift */,
 				9A19FF5F23E89CEC0041F663 /* Assets.xcassets */,
 				9A19FF6423E89CEC0041F663 /* LaunchScreen.storyboard */,
 				9A19FF6723E89CEC0041F663 /* Info.plist */,
@@ -268,6 +274,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A19FF5A23E89CE40041F663 /* AppDelegate.swift in Sources */,
+				9A19FF8A23E8A4EB0041F663 /* CircleImage.swift in Sources */,
+				9A19FF8C23E8A6C60041F663 /* MapView.swift in Sources */,
 				9A19FF5C23E89CE40041F663 /* SceneDelegate.swift in Sources */,
 				9A19FF5E23E89CE40041F663 /* ContentView.swift in Sources */,
 			);
@@ -436,6 +444,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"DesignCode/Preview Content\"";
+				DEVELOPMENT_TEAM = 6SQVNF4W45;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = DesignCode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -455,6 +464,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"DesignCode/Preview Content\"";
+				DEVELOPMENT_TEAM = 6SQVNF4W45;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = DesignCode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
