@@ -19,6 +19,7 @@
 		9A19FF8C23E8A6C60041F663 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A19FF8B23E8A6C60041F663 /* MapView.swift */; };
 		9AFE452923EDC89B00A97B0B /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFE452823EDC89B00A97B0B /* MenuView.swift */; };
 		9AFE452B23EDDAF400A97B0B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFE452A23EDDAF400A97B0B /* HomeView.swift */; };
+		9AFE452D23EDF88300A97B0B /* HomeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFE452C23EDF88300A97B0B /* HomeDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		9A19FF8B23E8A6C60041F663 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		9AFE452823EDC89B00A97B0B /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		9AFE452A23EDDAF400A97B0B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9AFE452C23EDF88300A97B0B /* HomeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				9A19FF5B23E89CE40041F663 /* SceneDelegate.swift */,
 				9A19FF5D23E89CE40041F663 /* ContentView.swift */,
 				9AFE452A23EDDAF400A97B0B /* HomeView.swift */,
+				9AFE452C23EDF88300A97B0B /* HomeDetailsView.swift */,
 				9AFE452823EDC89B00A97B0B /* MenuView.swift */,
 				9A19FF8923E8A4EB0041F663 /* CircleImage.swift */,
 				9A19FF8B23E8A6C60041F663 /* MapView.swift */,
@@ -281,6 +284,7 @@
 			files = (
 				9A19FF5A23E89CE40041F663 /* AppDelegate.swift in Sources */,
 				9AFE452B23EDDAF400A97B0B /* HomeView.swift in Sources */,
+				9AFE452D23EDF88300A97B0B /* HomeDetailsView.swift in Sources */,
 				9AFE452923EDC89B00A97B0B /* MenuView.swift in Sources */,
 				9A19FF8A23E8A4EB0041F663 /* CircleImage.swift in Sources */,
 				9A19FF8C23E8A6C60041F663 /* MapView.swift in Sources */,
