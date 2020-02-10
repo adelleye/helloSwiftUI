@@ -43,6 +43,34 @@ struct HomeDetailsView: View {
                       .padding(.horizontal)
                       .padding(.leading, 14)
                       .padding(.top, 30)
+                      
+            
+            HStack {
+                HStack  {
+                    RingView(width: 44, height: 44, percentage: 82, color1: #colorLiteral(red: 0, green: 0.3333333333, blue: 1, alpha: 1), color2: #colorLiteral(red: 0.631372549, green: 0.5294117647, blue: 1, alpha: 1), showProgress: .constant(true))
+                    
+                    VStack(alignment: . leading, spacing: 4) {
+                        Text("6 minutes left")
+                            .font(.system(size: 15, weight: .semibold , design: .default))
+                        Text("Watched 10 mins today")
+                            .font(.system(size: 12, weight: .regular , design: .default))
+                            .foregroundColor(Color.black.opacity(0.6))
+                        
+                    }
+                    
+                }
+                .padding(.vertical, 8)
+                .padding(.leading, 8)
+                .padding(.trailing, 20)
+                .background(Color.white)
+                .cornerRadius(20)
+                .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 20)
+                
+                Spacer()
+            }
+            .padding(.horizontal, 30)
+            
+
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack (spacing: 20) {

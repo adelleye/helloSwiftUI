@@ -88,8 +88,8 @@ struct ContentView: View {
                 )
                 
                 
-                BottomCardView()
-                    .offset(x: 0, y: showCard ? 500: 1550)
+                BottomCardView(showProgress: $showCard)
+                    .offset(x: 0, y: showCard ? 350: 1550)
                     .blur(radius: show ? 10: 0)
                     .animation(.timingCurve(0.2, 0.8, 0.2, 1.0, duration: 0.9))
             }
@@ -169,6 +169,8 @@ struct TitleView: View {
 }
 
 struct BottomCardView: View {
+    @Binding var showProgress: Bool
+    
     var body: some View {
         VStack (spacing: 20) {
             
@@ -181,6 +183,36 @@ struct BottomCardView: View {
                 .multilineTextAlignment(.center)
                 .font(.subheadline)
                 .lineSpacing(4)
+             
+            HStack (spacing: 20) {
+                RingView(width: 88, height: 88, percentage: 78, color1: #colorLiteral(red: 1, green: 0.4980392157, blue: 0.3098039216, alpha: 1), color2: #colorLiteral(red: 0.6862745098, green: 0.4784313725, blue: 1, alpha: 1) , showProgress: $showProgress)
+                    .animation(Animation.easeInOut.delay(0.3))
+                
+                VStack (alignment: .leading, spacing: 8){
+                    Text("Swift UI Prototype")
+                        .font(.system(size: 16, weight: .bold, design: .default))
+                    
+                    Text("""
+12 of 12 sections completed
+10 hours spent so far
+""")
+                        .font(.system(size: 13, weight: .regular, design: .default))
+                        .foregroundColor(Color.black.opacity(0.6))
+                    .lineSpacing(4)
+                  
+                }
+            //.frame(width: 235, height: 100)
+                .padding(20)
+                .background(Color.white)
+                .clipShape(RoundedRectangle(cornerRadius: 20 , style: .continuous))
+                .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                .shadow(color: Color(#colorLiteral(red: 0.6117647059, green: 0.6470588235, blue: 0.7254901961, alpha: 1)).opacity(0.3), radius: 10, x: 0, y: 10)
+           
+            
+            }
+            
+            
+            
             Spacer()
             
             
