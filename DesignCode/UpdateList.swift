@@ -9,53 +9,76 @@
 import SwiftUI
 
 struct UpdateList: View {
-  
+  @ObservedObject var store = UpdateStore()
+    
+    //Function to add to updatesData - need to create a store (UpdateStore.swift) for this to work.
+    
+    func addUpdate() {
+        
+        store.updates.append(updates(title: "React Native for Designers", description: "Build an iOS and Android app from scratch", date:"FEB 10" , image: Image("Card2")))
+    }
+    
     
     var body: some View {
         NavigationView  {
-            List(updatesData) { update in
-                NavigationLink(destination: Text (update.description)){
-                    
-                    HStack (alignment:.top){
+            List{
+                ForEach(store.updates) { update in
+                    NavigationLink(destination: UpdateDetail(update: update)){
                         
-                        update.image
-                        .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 80, height: 80)
-                            .background(Color(#colorLiteral(red: 0.09411764706, green: 0.1254901961, blue: 0.3137254902, alpha: 1)))
-                        .clipShape(RoundedRectangle(cornerRadius: 20, style: .circular))
-                            .padding(.trailing, 4)
-                        
-                        
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text(update.title)
-                                .font(.system(size: 20, weight: .bold, design: .default))
+                        HStack (alignment:.top) {
+                            update.image
+                            .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 80, height: 80)
+                                .background(Color(#colorLiteral(red: 0.09411764706, green: 0.1254901961, blue: 0.3137254902, alpha: 1)))
+                                .clipShape(RoundedRectangle(cornerRadius: 20, style: .circular))
+                                .padding(.trailing, 4)
                             
-                            Text(update.description)
-                            .lineLimit(3)
                             
-                            Text(update.date)
-                            .frame(width: 70, height: 24)
-                                .padding(.horizontal , 4)
-                                .padding(.top, 2)
-                                .padding(.bottom, 2)
-                            .background(Color(#colorLiteral(red: 0.09411764706, green: 0.1254901961, blue: 0.3137254902, alpha: 1)))
-                        .clipShape(RoundedRectangle(cornerRadius: 20, style: .circular))
-                            
-                                .foregroundColor(Color.white)
-                                .font(.system(size: 14, weight: .regular, design: .default))
-                            
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text(update.title)
+                                    .font(.system(size: 20, weight: .bold, design: .default))
+                                
+                                Text(update.description)
+                                    .lineLimit(3)
+                                    .font(.system(size: 14, weight: .regular, design: .default))
+                                    .foregroundColor(Color(#colorLiteral(red: 0.2980392157, green: 0.2980392157, blue: 0.2980392157, alpha: 1)))
+                                    .lineSpacing(3)
+                                
+                                Text(update.date)
+                                    .frame(width: 70, height: 24)
+                                    .padding(.horizontal , 4)
+                                    .padding(.top, 2)
+                                    .padding(.bottom, 2)
+                                    .background(Color(#colorLiteral(red: 0.09411764706, green: 0.1254901961, blue: 0.3137254902, alpha: 1)))
+                                    .clipShape(RoundedRectangle(cornerRadius: 20, style: .circular))
+                                    .foregroundColor(Color.white)
+                                    .font(.system(size: 14, weight: .regular, design: .default))
+                                
+                            }
                         }
+                    
                     }
-                
-                    
-                    
-                    
+                    .padding(.vertical, 8)
                 }
-                .padding(.vertical, 8)
-                  
+                .onDelete { index in
+                    self.store.updates.remove(at: index.first!)
+                }
+                //Drag and update order function
+                .onMove { (source: IndexSet, destination: Int) in
+                    
+                    self.store.updates.move(fromOffsets: source, toOffset: destination)
+                
+                }
+                
             }
         .navigationBarTitle("Updates")
+            
+        .navigationBarItems(leading: Button(action: addUpdate) {
+        Text("Add Update")
+        },
+                            trailing: EditButton()
+            )
         }
     }
 }
