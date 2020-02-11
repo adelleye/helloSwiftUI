@@ -45,30 +45,12 @@ struct HomeDetailsView: View {
                       .padding(.top, 30)
                       
             
-            HStack {
-                HStack  {
-                    RingView(width: 44, height: 44, percentage: 82, color1: #colorLiteral(red: 0, green: 0.3333333333, blue: 1, alpha: 1), color2: #colorLiteral(red: 0.631372549, green: 0.5294117647, blue: 1, alpha: 1), showProgress: .constant(true))
-                    
-                    VStack(alignment: . leading, spacing: 4) {
-                        Text("6 minutes left")
-                            .font(.system(size: 15, weight: .semibold , design: .default))
-                        Text("Watched 10 mins today")
-                            .font(.system(size: 12, weight: .regular , design: .default))
-                            .foregroundColor(Color.black.opacity(0.6))
-                        
-                    }
-                    
-                }
-                .padding(.vertical, 8)
-                .padding(.leading, 8)
-                .padding(.trailing, 20)
-                .background(Color.white)
-                .cornerRadius(20)
-                .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 20)
-                
-                Spacer()
+            ScrollView(.horizontal, showsIndicators: false) {
+                WatchRingsView()
+                    .padding( .horizontal, 30)
+                    .padding(.bottom, 30)
             }
-            .padding(.horizontal, 30)
+           
             
 
             
@@ -85,7 +67,7 @@ struct HomeDetailsView: View {
                     }
                
                 }
-                .padding(.top , 30)
+                
                 .padding(.horizontal, 30)
                 .padding(.bottom, 60)
             
@@ -158,3 +140,54 @@ let sectionData = [ Section(title: "Prototype designs in SwiftUI", text: "18 SEC
 
 ]
 
+
+struct WatchRingsView: View {
+    var body: some View {
+        HStack(spacing: 30) {
+            HStack (spacing: 12)  {
+                RingView(width: 44, height: 44, percentage: 82, color1: #colorLiteral(red: 0, green: 0.3333333333, blue: 1, alpha: 1), color2: #colorLiteral(red: 0.631372549, green: 0.5294117647, blue: 1, alpha: 1), showProgress: .constant(true))
+                
+                VStack(alignment: . leading, spacing: 4) {
+                    Text("6 minutes left")
+                        .font(.system(size: 15, weight: .semibold , design: .default))
+                    Text("Watched 10 mins today")
+                        .font(.system(size: 12, weight: .regular , design: .default))
+                        .foregroundColor(Color.black.opacity(0.6))
+                    
+                }
+                
+            }
+            .padding(.vertical, 8)
+            .padding(.leading, 8)
+            .padding(.trailing, 20)
+            .background(Color.white)
+            .cornerRadius(20)
+            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+            
+            
+            
+            
+            HStack  {
+                RingView(width: 34, height: 34, percentage: 63, color1: #colorLiteral(red: 0.262745098, green: 0.3254901961, blue: 0.9960784314, alpha: 1), color2: #colorLiteral(red: 0, green: 0.568627451, blue: 1, alpha: 1), showProgress: .constant(true))
+                
+            }
+            .padding( 8)
+            .background(Color.white)
+            .cornerRadius(15)
+            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+            
+            
+            
+            HStack  {
+                RingView(width: 34, height: 34, percentage: 70, color1: #colorLiteral(red: 0.9568627451, green: 0.04705882353, blue: 0.2901960784, alpha: 1), color2: #colorLiteral(red: 1, green: 0.7843137255, blue: 0.5607843137, alpha: 1), showProgress: .constant(true))
+                
+            }
+            .padding( 8)
+            .background(Color.white)
+            .cornerRadius(15)
+            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+            
+            
+        }
+    }
+}
