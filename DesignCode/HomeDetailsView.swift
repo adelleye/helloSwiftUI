@@ -15,67 +15,78 @@ struct HomeDetailsView: View {
     
     var body: some View {
        
-          VStack {
-                      HStack {
-                          Text("Watching")
-                            //.font(.system(size: 28, weight: .bold, design: .default))
-                            .font(.system(size: 28, weight: .bold, design: .default))
-                          Spacer()
-                          AvatarView(showMenu: $showMenu)
-                         
-                        Button(action: {self.showUpdate.toggle()}) {
-                        
-                            Image(systemName: "bell")
-                                .renderingMode(.original)
-                                .font(.system(size: 16, weight: .medium ))
-                            .frame(width: 36, height: 36 )
-                                .background(Color.white)
-                            .clipShape(Circle())
-                                .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
-                                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
-                        }
-                         //Modifier used to present view
-                            .sheet(isPresented: $showUpdate, content: {
-                                UpdateList()
+        ScrollView {
+            VStack {
+                          HStack {
+                              Text("Watching")
+                                //.font(.system(size: 28, weight: .bold, design: .default))
+                                .font(.system(size: 28, weight: .bold, design: .default))
+                              Spacer()
+                              AvatarView(showMenu: $showMenu)
+                             
+                            Button(action: {self.showUpdate.toggle()}) {
+                            
+                                Image(systemName: "bell")
+                                    .renderingMode(.original)
+                                    .font(.system(size: 16, weight: .medium ))
+                                .frame(width: 36, height: 36 )
+                                    .background(Color.white)
+                                .clipShape(Circle())
+                                    .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
                             }
-                        )
-                      }
-                      .padding(.horizontal)
-                      .padding(.leading, 14)
-                      .padding(.top, 30)
-                      
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                WatchRingsView()
-                    .padding( .horizontal, 30)
-                    .padding(.bottom, 30)
-            }
-           
-            
-
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack (spacing: 20) {
-                    ForEach(sectionData) { item in
-                        GeometryReader { geometry in
-                            SectionView(section: item)
-                                //3d Scroll Animation using Geometry Reader
-                                .rotation3DEffect(Angle(degrees: Double(geometry.frame(in: .global).minX - 30) / -25
-                                ), axis: (x: 0, y: 10, z: 0))
-                        }
-                    .frame(width: 275, height: 275)
-                    }
+                             //Modifier used to present view
+                                .sheet(isPresented: $showUpdate, content: {
+                                    UpdateList()
+                                }
+                            )
+                          }
+                          .padding(.horizontal)
+                          .padding(.leading, 14)
+                          .padding(.top, 30)
+                          
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    WatchRingsView()
+                        .padding( .horizontal, 30)
+                        .padding(.bottom, 30)
+                }
                
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack (spacing: 20) {
+                        ForEach(sectionData) { item in
+                            GeometryReader { geometry in
+                                SectionView(section: item)
+                                    //3d Scroll Animation using Geometry Reader
+                                    .rotation3DEffect(Angle(degrees: Double(geometry.frame(in: .global).minX - 30) / -25
+                                    ), axis: (x: 0, y: 10, z: 0))
+                            }
+                        .frame(width: 275, height: 275)
+                        }
+                   
+                    }
+                    
+                    .padding(.horizontal, 30)
+                    .padding(.bottom, 60)
+                
                 }
                 
+                
+                HStack {
+                    Text("25 Courses")
+                    .font(.system(size: 20, weight: .bold, design: .default))
+                    Spacer()
+                }
                 .padding(.horizontal, 30)
-                .padding(.bottom, 60)
-            
+                
+                SectionView(section: sectionData[2], width: screen.width-60, height: 275)
+                
+                Spacer()
+                          
+                        
             }
-            Spacer()
-                      
-                    
-                  }
+        }
     }
 }
 
@@ -87,7 +98,8 @@ struct HomeDetailsView_Previews: PreviewProvider {
 
 struct SectionView: View {
     var section : Section
-     
+    var width:CGFloat = 275
+    var height:CGFloat = 275
     
     var body: some View {
         VStack  {
@@ -113,7 +125,7 @@ struct SectionView: View {
         }
         .padding(.top, 20)
         .padding(.horizontal, 20)
-        .frame(width: 275, height: 275)
+        .frame(width: width, height: height)
             //.background(Color(#colorLiteral(red: 0.4156862745, green: 0.3333333333, blue: 0.9882352941, alpha: 1)))
             .background(section.color)
             .clipShape(RoundedRectangle(cornerRadius: 30, style: .circular))
