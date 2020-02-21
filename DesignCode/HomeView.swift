@@ -11,6 +11,7 @@ import SwiftUI
 struct HomeView: View {
     @State var showMenu = false
     @State var viewState = CGSize.zero
+    @State var showContent = false
     
     var body: some View {
         ZStack {
@@ -19,7 +20,7 @@ struct HomeView: View {
                 .edgesIgnoringSafeArea(.all)
                 
             
-            HomeDetailsView(showMenu: $showMenu)
+            HomeDetailsView(showMenu: $showMenu, showContent: $showContent)
                 .padding(.top, 44)
                 .background(Color.white)
                 
@@ -57,6 +58,33 @@ struct HomeView: View {
             }
             
             )
+            // using If statement to show the view
+            if showContent {
+                
+                Color.white
+                    .edgesIgnoringSafeArea(.all)
+                ContentView()
+                
+                VStack {
+                    HStack() {
+                        Spacer()
+                        //Dismiss button
+                        Button(action: {self.showContent.toggle() } ) {
+                            Image(systemName: "xmark")
+                                .frame(width: 36, height: 36)
+                                .background(Color(.white))
+                                .clipShape(Circle())
+                                .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+                        }
+                    }
+                    .padding()
+
+                    Spacer()
+                }
+                
+           
+            }
             
            
         }

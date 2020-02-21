@@ -12,6 +12,7 @@ import SwiftUI
 struct HomeDetailsView: View {
     @Binding var showMenu : Bool
     @State var showUpdate = false
+    @Binding var showContent : Bool
     
     var body: some View {
        
@@ -50,6 +51,11 @@ struct HomeDetailsView: View {
                     WatchRingsView()
                         .padding( .horizontal, 30)
                         .padding(.bottom, 30)
+                        
+                        // on tap gesture for if show transition
+                        .onTapGesture {
+                            self.showContent = true
+                    }
                 }
                
                 
@@ -92,7 +98,7 @@ struct HomeDetailsView: View {
 
 struct HomeDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeDetailsView(showMenu: .constant(false))
+        HomeDetailsView(showMenu: .constant(false), showContent: .constant(false))
     }
 }
 
